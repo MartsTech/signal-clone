@@ -1,8 +1,9 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, KeyboardAvoidingView } from "react-native";
 import { Image, Input, Button } from "react-native-elements";
+import { auth } from "../firebase";
 import { RootStackParamList } from "../types";
 
 type Props = StackScreenProps<RootStackParamList, "Login">;
@@ -10,6 +11,16 @@ type Props = StackScreenProps<RootStackParamList, "Login">;
 const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        navigation.replace("Home");
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   const signIn = () => {};
 
