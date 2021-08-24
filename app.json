@@ -1,6 +1,6 @@
 {
   "expo": {
-    "scheme": "https://auth.expo.io/@martstech/signal-clone",
+    "scheme": "exp",
     "userInterfaceStyle": "automatic",
     "name": "Signal Clone",
     "description": "Signal Clone created with React Native",

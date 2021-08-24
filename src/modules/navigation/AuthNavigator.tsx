@@ -11,7 +11,11 @@ const AuthNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="Login" screenOptions={globalScreenOptions}>
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{ headerBackTitle: "Back to Login" }}
+      />
     </Stack.Navigator>
   );
 };

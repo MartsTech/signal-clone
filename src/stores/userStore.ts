@@ -18,7 +18,6 @@ class UserStore {
 
   reset = () => {
     this.user = null;
-    this.loading = true;
   };
 
   signInEmail = (email: string, password: string) => {

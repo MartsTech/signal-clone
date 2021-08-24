@@ -9,23 +9,20 @@ const Login = () => {
   const [signInGoogle, loading] = useSignInGoogle();
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <Image
-        source={require("../../../../assets/images/logo.png")}
-        style={{ width: 200, height: 200 }}
-      />
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <Image style={styles.image} source={require("../../../../assets/images/logo.png")} />
       <LoginForm />
-      <Link to="/Register" style={styles.link}>
+      <Link style={styles.link} to="/Register">
         <Text style={styles.text}>New to Signal?</Text>
       </Link>
       <SocialIcon
-        onPress={signInGoogle}
-        disabled={loading}
-        button
-        light
+        style={styles.provider}
         title="Sign In With Google"
         type="google"
-        style={styles.provider}
+        button
+        light
+        onPress={signInGoogle}
+        disabled={loading}
       />
     </KeyboardAvoidingView>
   );
@@ -41,6 +38,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
   },
+  image: { width: 200, height: 200 },
   text: {
     color: "gray",
     fontSize: 16,
