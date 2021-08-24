@@ -3,11 +3,11 @@ import React from "react";
 import { KeyboardAvoidingView, StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
 import { SocialIcon } from "react-native-elements/dist/social/SocialIcon";
-import { useStore } from "../../../stores/store";
+import useSignInGoogle from "../../../hooks/useSignInGoogle";
 import RegisterForm from "./RegisterForm";
 
 const Register = () => {
-  const { signInProvider } = useStore().userStore;
+  const [signInGoogle, loading] = useSignInGoogle();
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -19,7 +19,8 @@ const Register = () => {
         <Text style={styles.text}>Already registered?</Text>
       </Link>
       <SocialIcon
-        onPress={signInProvider}
+        onPress={signInGoogle}
+        disabled={loading}
         button
         light
         title="Sign In With Google"

@@ -1,11 +1,12 @@
+import { AuthSessionResult } from "expo-auth-session";
 import firebase from "firebase/app";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 // @ts-ignore
 import { Toast } from "toastify-react-native";
 import { auth } from "../config/firebase";
 import { User } from "../types/user";
 import truncate from "../utils/truncate";
-import { AuthSessionResult } from "expo-auth-session";
+import { resetStore } from "./store";
 
 class UserStore {
   user: User | null = null;
@@ -14,6 +15,11 @@ class UserStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  reset = () => {
+    this.user = null;
+    this.loading = true;
+  };
 
   signInEmail = (email: string, password: string) => {
     this.loading = true;
@@ -27,7 +33,9 @@ class UserStore {
         Toast.error(truncate(error.message, 59));
       });
 
-    this.loading = false;
+    runInAction(() => {
+      this.loading = false;
+    });
   };
 
   signUpEmail = (displayName: string, email: string, password: string) => {
@@ -43,7 +51,9 @@ class UserStore {
         Toast.error(truncate(error.message, 60));
       });
 
-    this.loading = false;
+    runInAction(() => {
+      this.loading = false;
+    });
   };
 
   signInGoogle = async (response: AuthSessionResult) => {
@@ -54,13 +64,20 @@ class UserStore {
 
       const credential = firebase.auth.GoogleAuthProvider.credential(id_token);
       await auth.signInWithCredential(credential);
+    } else if (response?.type === "error") {
+      if (response.error?.message) {
+        Toast.error(truncate(response.error.message, 60));
+      }
     }
 
-    this.loading = false;
+    runInAction(() => {
+      this.loading = false;
+    });
   };
 
   signOut = async () => {
     await auth.signOut();
+    resetStore();
   };
 
   setFirebaseUser = (user: firebase.User | null) => {

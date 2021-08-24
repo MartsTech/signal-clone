@@ -1,36 +1,18 @@
 import { NavigationContainer } from "@react-navigation/native";
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions,
-} from "@react-navigation/native-stack";
+import { observer } from "mobx-react-lite";
 import React from "react";
-import LoginScreen from "../../screens/LoginScreen";
-import RegisterScreen from "../../screens/RegisterScreen";
-import { RootStackParamList } from "../../types/navigation";
+import { useStore } from "../../stores/store";
+import AppNavigator from "./AppNavigator";
+import AuthNavigator from "./AuthNavigator";
 
 const Navigation = () => {
-  return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
-  );
+  const { user, loading } = useStore().userStore;
+
+  if (!user && loading) {
+    return null;
+  }
+
+  return <NavigationContainer>{!user ? <AuthNavigator /> : <AppNavigator />}</NavigationContainer>;
 };
 
-export default Navigation;
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const globalScreenOptions: NativeStackNavigationOptions = {
-  headerStyle: { backgroundColor: "#288cdc" },
-  headerTitleStyle: { color: "white" },
-  headerTintColor: "white",
-};
-
-const RootNavigator = () => {
-  return (
-    <Stack.Navigator initialRouteName="Login" screenOptions={globalScreenOptions}>
-      <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
-    </Stack.Navigator>
-  );
-};
+export default observer(Navigation);
