@@ -2,8 +2,8 @@ import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Input } from "react-native-elements";
-import { useStore } from "src/stores/store";
 import * as Yup from "yup";
+import { useStore } from "../../../stores/store";
 
 const validationSchema = Yup.object({
   displayName: Yup.string().required("Full name is required"),

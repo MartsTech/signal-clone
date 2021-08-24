@@ -3,15 +3,21 @@ import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 // @ts-ignore
 import ToastManager from "toastify-react-native";
-import Navigation from "./src/navigation/RootNavigation";
+import AuthProvider from "./src/modules/auth/AuthProvider";
+import Navigation from "./src/modules/navigation/RootNavigation";
+import { store, StoreContext } from "./src/stores/store";
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <Navigation />
-      <StatusBar style="light" />
-      <ToastManager />
-    </SafeAreaProvider>
+    <StoreContext.Provider value={store}>
+      <AuthProvider>
+        <SafeAreaProvider>
+          <Navigation />
+          <StatusBar style="light" />
+          <ToastManager />
+        </SafeAreaProvider>
+      </AuthProvider>
+    </StoreContext.Provider>
   );
 };
 

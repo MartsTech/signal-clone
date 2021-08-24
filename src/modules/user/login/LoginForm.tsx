@@ -2,8 +2,8 @@ import { Formik } from "formik";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, Input } from "react-native-elements";
-import { useStore } from "src/stores/store";
 import * as Yup from "yup";
+import { useStore } from "../../../stores/store";
 
 const validationSchema = Yup.object({
   email: Yup.string().required("Email is required").email("Email is not in the correct format"),

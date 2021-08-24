@@ -4,9 +4,9 @@ import {
   NativeStackNavigationOptions,
 } from "@react-navigation/native-stack";
 import React from "react";
-import LoginScreen from "../screens/LoginScreen";
-import RegisterScreen from "../screens/RegisterScreen";
-import { RootStackParamList } from "../types/navigation";
+import LoginScreen from "../../screens/LoginScreen";
+import RegisterScreen from "../../screens/RegisterScreen";
+import { RootStackParamList } from "../../types/navigation";
 
 const Navigation = () => {
   return (

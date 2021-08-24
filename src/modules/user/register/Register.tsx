@@ -3,7 +3,7 @@ import React from "react";
 import { KeyboardAvoidingView, StyleSheet } from "react-native";
 import { Text } from "react-native-elements";
 import { SocialIcon } from "react-native-elements/dist/social/SocialIcon";
-import { useStore } from "src/stores/store";
+import { useStore } from "../../../stores/store";
 import RegisterForm from "./RegisterForm";
 
 const Register = () => {

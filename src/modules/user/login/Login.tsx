@@ -2,11 +2,11 @@ import { Link } from "@react-navigation/native";
 import React from "react";
 import { KeyboardAvoidingView, StyleSheet } from "react-native";
 import { Image, SocialIcon, Text } from "react-native-elements";
-import { useStore } from "src/stores/store";
+import useSignInGoogle from "../../../hooks/useSignInGoogle";
 import LoginForm from "./LoginForm";
 
 const Login = () => {
-  const { signInProvider } = useStore().userStore;
+  const [signInGoogle, loading] = useSignInGoogle();
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -19,7 +19,8 @@ const Login = () => {
         <Text style={styles.text}>New to Signal?</Text>
       </Link>
       <SocialIcon
-        onPress={signInProvider}
+        onPress={signInGoogle}
+        disabled={loading}
         button
         light
         title="Sign In With Google"
