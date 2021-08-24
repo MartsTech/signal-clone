@@ -1,6 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+// @ts-ignore
+import ToastManager from "toastify-react-native";
 import Navigation from "./src/navigation/RootNavigation";
 
 const App = () => {
@@ -8,6 +10,7 @@ const App = () => {
     <SafeAreaProvider>
       <Navigation />
       <StatusBar style="light" />
+      <ToastManager />
     </SafeAreaProvider>
   );
 };

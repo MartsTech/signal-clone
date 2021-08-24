@@ -1,22 +1,22 @@
 import { Link } from "@react-navigation/native";
 import React from "react";
 import { KeyboardAvoidingView, StyleSheet } from "react-native";
-import { Image, SocialIcon, Text } from "react-native-elements";
+import { Text } from "react-native-elements";
+import { SocialIcon } from "react-native-elements/dist/social/SocialIcon";
 import { useStore } from "src/stores/store";
-import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
-const Login = () => {
+const Register = () => {
   const { signInProvider } = useStore().userStore;
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <Image
-        source={require("../../../../assets/images/logo.png")}
-        style={{ width: 200, height: 200 }}
-      />
-      <LoginForm />
-      <Link to="/Register" style={styles.link}>
-        <Text style={styles.text}>New to Signal?</Text>
+      <Text h3 style={styles.title}>
+        Create a Signal account
+      </Text>
+      <RegisterForm />
+      <Link to="/Login" style={styles.link}>
+        <Text style={styles.text}>Already registered?</Text>
       </Link>
       <SocialIcon
         onPress={signInProvider}
@@ -30,7 +30,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   container: {
@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
     backgroundColor: "white",
+  },
+  title: {
+    marginBottom: 50,
   },
   text: {
     color: "gray",
