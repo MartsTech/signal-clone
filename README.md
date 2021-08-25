@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img width="200px" src="https://raw.githubusercontent.com/MartsTech/signal-clone/main/assets/images/logo.png?token=ARHRI5FC5Y5ESKQUWW3T4VTBEZXA2" alt="Signal Logo" />
+  <img width="200px" src="https://raw.githubusercontent.com/MartsTech/signal-clone/main/assets/images/logo.png" alt="Signal Logo" />
   <br />
   Signal Clone
   <br />
