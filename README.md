@@ -33,6 +33,7 @@
 
 - iOS & Android
 - Real Time Messaging
+- Infinity Scrolling
 - Group Chats
 - Authentication
 - Navigate between screens
