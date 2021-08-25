@@ -45,6 +45,7 @@ const LoginForm = () => {
               onBlur={handleBlur("password")}
               onChangeText={handleChange("password")}
               errorMessage={errors.password && touched.password ? errors.password : undefined}
+              onSubmitEditing={handleSubmit}
             />
           </View>
           <Button raised title="Login" onPress={handleSubmit} containerStyle={styles.button} />

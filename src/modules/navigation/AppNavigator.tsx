@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { globalScreenOptions } from "../../options/globalScreenOptions";
-import ChatsCreateScreen from "../../screens/ChatsCreateScreen";
+import ChatCreateScreen from "../../screens/ChatCreateScreen";
+import ChatDetailsScreen from "../../screens/ChatDetailsScreen";
 import HomeScreen from "../../screens/HomeScreen";
 import { AppStackParamList } from "../../types/navigation";
 
@@ -20,7 +21,16 @@ const AppNavigator = () => {
           headerTintColor: "black",
         }}
       />
-      <Stack.Screen name="ChatsCreate" component={ChatsCreateScreen} />
+      <Stack.Screen
+        name="ChatDetails"
+        component={ChatDetailsScreen}
+        options={{ headerTitleAlign: "left", headerBackTitleVisible: false }}
+      />
+      <Stack.Screen
+        name="ChatCreate"
+        component={ChatCreateScreen}
+        options={{ title: "Add a new chat", headerBackTitle: "Chats" }}
+      />
     </Stack.Navigator>
   );
 };

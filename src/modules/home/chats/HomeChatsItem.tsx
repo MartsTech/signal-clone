@@ -1,21 +1,35 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Avatar, ListItem } from "react-native-elements";
+import { useStore } from "../../../stores/store";
+import { Chat } from "../../../types/chat";
+import { AppNavigationProp } from "../../../types/navigation";
 
 interface HomeChatsItemProps {
-  id: string;
-  chatName: string;
-  enterChat: () => void;
+  chat: Chat;
 }
 
-const HomeChatsItem: React.FC<HomeChatsItemProps> = () => {
+const HomeChatsItem: React.FC<HomeChatsItemProps> = ({ chat }) => {
+  const { id, name, photoURL, lastMessage } = chat;
+  const { selectChat } = useStore().chatStore;
+  const navigation = useNavigation<AppNavigationProp>();
+
+  const handleSelect = (id: string) => {
+    selectChat(id);
+    navigation.navigate("ChatDetails");
+  };
+
   return (
-    <ListItem>
-      <Avatar rounded title="A" source={require("../../../../assets/images/avatar.png")} />
+    <ListItem bottomDivider onPress={() => handleSelect(id)}>
+      <Avatar
+        rounded
+        source={photoURL ? { uri: photoURL } : require("../../../../assets/images/avatar.png")}
+      />
       <ListItem.Content>
-        <ListItem.Title style={styles.title}>Demo Chat</ListItem.Title>
+        <ListItem.Title style={styles.title}>{name}</ListItem.Title>
         <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
-          This is a demo subtitle
+          {lastMessage}
         </ListItem.Subtitle>
       </ListItem.Content>
     </ListItem>

@@ -1,12 +1,12 @@
 import { AuthSessionResult } from "expo-auth-session";
 import firebase from "firebase/app";
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, reaction, runInAction } from "mobx";
 // @ts-ignore
 import { Toast } from "toastify-react-native";
 import { auth } from "../config/firebase";
 import { User } from "../types/user";
 import truncate from "../utils/truncate";
-import { resetStore } from "./store";
+import { resetStore, store } from "./store";
 
 class UserStore {
   user: User | null = null;
@@ -14,6 +14,15 @@ class UserStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    reaction(
+      () => this.user,
+      (user) => {
+        if (user) {
+          store.chatStore.loadChats();
+        }
+      },
+    );
   }
 
   reset = () => {
@@ -43,8 +52,9 @@ class UserStore {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        user?.updateProfile({ displayName });
-        this.setFirebaseUser(user);
+        user?.updateProfile({ displayName }).then(() => {
+          this.setFirebaseUser(user);
+        });
       })
       .catch((error) => {
         Toast.error(truncate(error.message, 60));

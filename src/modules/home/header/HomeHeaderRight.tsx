@@ -1,8 +1,8 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { AppNavigationProp } from "src/types/navigation";
+import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { AppNavigationProp } from "../../../types/navigation";
 
 const HomeHeaderRight = () => {
   const navigation = useNavigation<AppNavigationProp>();
@@ -12,7 +12,7 @@ const HomeHeaderRight = () => {
       <TouchableOpacity activeOpacity={0.5}>
         <AntDesign name="camerao" size={24} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("ChatsCreate")} activeOpacity={0.5}>
+      <TouchableOpacity onPress={() => navigation.navigate("ChatCreate")} activeOpacity={0.5}>
         <SimpleLineIcons name="pencil" size={20} color="black" />
       </TouchableOpacity>
     </View>
