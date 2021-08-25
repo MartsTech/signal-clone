@@ -1,5 +1,7 @@
 <h1 align="center">
-  <img width="200px" src="https://raw.githubusercontent.com/MartsTech/signal-clone/main/assets/images/logo.png" alt="Signal Logo" />
+  <a href="https://expo.dev/@martstech/signal-clone">
+    <img width="200px" src="https://raw.githubusercontent.com/MartsTech/signal-clone/main/assets/images/logo.png" alt="Signal Logo" />
+  </a>
   <br />
   Signal Clone
   <br />
@@ -15,6 +17,7 @@
 </p>
 
 <p align="center">
+  <a href="#demo">Demo</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#key-technologies">Key Technologies</a> •
   <a href="#setup">Setup</a> •
@@ -26,6 +29,12 @@
   <img width="400px" height="800px" style="object-fit: contain" src="https://raw.githubusercontent.com/MartsTech/signal-clone/main/assets/screenshots/chats.png" alt="chats" />
   <img width="400px" height="800px" style="object-fit: contain" src="https://raw.githubusercontent.com/MartsTech/signal-clone/main/assets/screenshots/messages.png" alt="messages" />
 </div>
+
+---
+
+## Demo
+
+Here is a working live demo [here](https://expo.dev/@martstech/signal-clone)
 
 ---
 
