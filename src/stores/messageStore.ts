@@ -62,7 +62,7 @@ class MessageStore {
     }
 
     const snapshot = await db
-      .collection("channels")
+      .collection("chats")
       .doc(selectedChat.id)
       .collection("messages")
       .orderBy("timestamp", "desc")
@@ -87,8 +87,8 @@ class MessageStore {
         this.lastMessageTimestamp = doc.data().timestamp;
       } else {
         // @ts-ignore
-        const lastTimestamp = new Date(this.lastMessageTimestamp?.toDate()).getTime();
-        const currentTimestamp = new Date(doc.data().timestamp?.toDate()).getTime();
+        const lastTimestamp = this.lastMessageTimestamp?.toDate()?.getTime();
+        const currentTimestamp = doc.data().timestamp?.toDate()?.getTime();
 
         if (currentTimestamp < lastTimestamp) {
           this.lastMessageTimestamp = doc.data().timestamp;
