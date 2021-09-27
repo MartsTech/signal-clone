@@ -10,7 +10,7 @@
     "format": "prettier --check ./src"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.1",
     "expo": "~42.0.1",
     "expo-auth-session": "~3.3.1",
