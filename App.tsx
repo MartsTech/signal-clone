@@ -1,21 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-// @ts-ignore
-import ToastManager from "toastify-react-native";
-import AuthProvider from "./src/modules/auth/AuthProvider";
-import Navigation from "./src/modules/navigation/RootNavigation";
-import { store, StoreContext } from "./src/stores/store";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 
-const App = () => {
+export default function App() {
   return (
-    <StoreContext.Provider value={store}>
-      <AuthProvider>
-        <Navigation />
-        <StatusBar style="light" />
-        <ToastManager position="bottom" />
-      </AuthProvider>
-    </StoreContext.Provider>
+    <View style={styles.container}>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
   );
-};
+}
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

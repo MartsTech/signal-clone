@@ -1,30 +1,33 @@
 {
   "expo": {
-    "scheme": "exp",
-    "userInterfaceStyle": "automatic",
-    "name": "Signal Clone",
-    "description": "Signal Clone created with React Native",
+    "name": "signal-clone",
     "slug": "signal-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/meta/icon.png",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/meta/icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#3A76F0"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/meta/icon.png",
-        "backgroundColor": "#3A76F0"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
       }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     }
   }
 }

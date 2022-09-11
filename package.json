@@ -1,64 +1,26 @@
 {
-  "private": true,
+  "name": "signal-clone",
+  "version": "2.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "lint": "eslint --ext .tsx --ext .ts src/",
-    "format": "prettier --check ./src"
+    "web": "expo start --web"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
-    "expo": "~43.0.3",
-    "expo-auth-session": "~3.4.2",
-    "expo-random": "~12.0.1",
-    "expo-status-bar": "~1.1.0",
-    "firebase": "9.4.1",
-    "formik": "^2.2.9",
-    "mobx": "^6.3.7",
-    "mobx-react-lite": "^3.2.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-dotenv": "^3.3.0",
-    "react-native-elements": "^3.4.2",
-    "react-native-modal": "^13.0.0",
-    "react-native-responsive-fontsize": "^0.5.1",
-    "react-native-safe-area-context": "3.3.2",
-    "react-native-screens": "~3.9.0",
-    "react-native-web": "~0.17.5",
-    "toastify-react-native": "^2.0.0",
-    "yup": "^0.32.11"
+    "expo": "~46.0.9",
+    "expo-status-bar": "~1.4.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.5",
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "~7.16.0",
-    "@types/react": "~17.0.34",
-    "@types/react-native": "~0.66.4",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.0.2",
-    "prettier": "^2.4.1",
-    "typescript": "~4.4.4"
+    "@babel/core": "^7.12.9",
+    "@types/react": "~18.0.14",
+    "@types/react-native": "~0.69.1",
+    "typescript": "~4.3.5"
   },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint --ext .tsx --ext .ts src/ --fix"
-    ],
-    "./src/**": [
-      "prettier --write ."
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  }
+  "private": true
 }
