@@ -3,6 +3,7 @@ import React, { FC, ReactNode, useEffect } from "react";
 import { auth } from "../../app/config/firebase-config";
 import { useAppDispatch, useAppSelector } from "../../app/store/store-hooks";
 import { selectAppMounted } from "../app/app-state";
+import { loadingStopped } from "../loading/loading-state";
 import { authLoggedIn, authLoggedOut, selectAuthLogged } from "./auth-state";
 import { transformFirebaseUser } from "./auth-utils";
 
@@ -23,6 +24,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
         } else if (!user && authLogged) {
           dispatch(authLoggedOut());
         }
+        dispatch(loadingStopped());
       });
       return unsubscribe;
     }
