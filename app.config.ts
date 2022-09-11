@@ -3,6 +3,7 @@ import "dotenv/config";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
+  scheme: "exp",
   entryPoint: "./index.js",
   name: "signal-clone",
   slug: "signal-clone",
