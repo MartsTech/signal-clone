@@ -28,3 +28,5 @@ export const authReducer = createReducer(initialAuthState, (builder) => {
 });
 
 export const selectAuthLogged = (state: RootState) => state.auth.logged;
+
+export const selectAuthUser = (state: RootState) => state.auth.user;
