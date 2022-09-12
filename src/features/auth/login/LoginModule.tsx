@@ -3,6 +3,7 @@ import { Image, SocialIcon, Text } from "@rneui/themed";
 import React from "react";
 import { KeyboardAvoidingView, StyleSheet } from "react-native";
 import { useAuthSignInWithGoogleProvider } from "../auth-hooks";
+import LoginForm from "./LoginForm";
 
 const LoginModule = () => {
   const [signInGoogle, loading] = useAuthSignInWithGoogleProvider();
@@ -13,6 +14,7 @@ const LoginModule = () => {
         style={styles.image}
         source={require("../../../../assets/logo.png")}
       />
+      <LoginForm />
       <Link style={styles.link} to="/Register">
         <Text style={styles.text}>New to Signal?</Text>
       </Link>

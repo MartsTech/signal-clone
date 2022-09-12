@@ -12,9 +12,10 @@ import HomeScreen from "../home/HomeScreen";
 import type { RootStackParamList } from "./navigation-types";
 
 const NavigationModule = () => {
-  const RootStack = createNativeStackNavigator<RootStackParamList>();
   const authLogged = useAppSelector(selectAuthLogged);
   const { theme } = useTheme();
+
+  const RootStack = createNativeStackNavigator<RootStackParamList>();
 
   return (
     <NavigationContainer>

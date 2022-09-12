@@ -16,6 +16,8 @@ export const authLoggedIn = createAction<{ user: AuthUser }>("auth/loggedIn");
 
 export const authLoggedOut = createAction("auth/loggedOut");
 
+export const authStateChanged = createAction("auth/stateChanged");
+
 export const authReducer = createReducer(initialAuthState, (builder) => {
   builder.addCase(authLoggedIn, (state, action) => {
     state.user = action.payload.user;

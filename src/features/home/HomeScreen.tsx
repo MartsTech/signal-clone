@@ -14,8 +14,8 @@ const HomeScreen: FC<RootStackScreenProps<"Home">> = ({ navigation }) => {
       headerStyle: { backgroundColor: theme.colors.white },
       headerTitleStyle: { color: theme.colors.black },
       headerTintColor: theme.colors.black,
-      headerLeft: HomeHeaderLeft,
-      headerRight: HomeHeaderRight,
+      headerLeft: () => <HomeHeaderLeft />,
+      headerRight: () => <HomeHeaderRight />,
     });
   }, [navigation, theme.colors.white, theme.colors.black]);
 

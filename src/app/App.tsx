@@ -1,6 +1,7 @@
 import React from "react";
 import { LogBox } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import Toast from "react-native-toast-notifications";
 import { Provider as StoreProvider } from "react-redux";
 import AppProvider from "../features/app/AppProvider";
 import AuthProvider from "../features/auth/AuthProvider";
@@ -14,19 +15,21 @@ LogBox.ignoreLogs(["AsyncStorage has been extracted"]);
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <StoreProvider store={store}>
-        <AppProvider>
-          <AuthProvider>
-            <LoadingProvider>
-              <SafeAreaProvider>
+    <StoreProvider store={store}>
+      <AppProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <SafeAreaProvider>
+              <LoadingProvider>
                 <NavigationModule />
-              </SafeAreaProvider>
-            </LoadingProvider>
-          </AuthProvider>
-        </AppProvider>
-      </StoreProvider>
-    </ThemeProvider>
+                {/* @ts-ignore */}
+                <Toast ref={(ref) => (global.toast = ref)} />
+              </LoadingProvider>
+            </SafeAreaProvider>
+          </ThemeProvider>
+        </AuthProvider>
+      </AppProvider>
+    </StoreProvider>
   );
 };
 

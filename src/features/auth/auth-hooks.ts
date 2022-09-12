@@ -20,7 +20,7 @@ export const useAuthSignInWithGoogleProvider = () => {
     try {
       await promptAsync();
     } catch (error) {
-      console.error(error);
+      toast.show((error as any).message, { type: "danger" });
     }
   };
 

@@ -29,10 +29,10 @@ export const authSignInWithGoogleProvider = createAsyncThunk<
         authLoggedIn({ user: transformFirebaseUser(response.user) })
       );
     } catch (error) {
-      console.error(error);
+      toast.show((error as any).message, { type: "danger" });
     }
   } else if (result.type === "error") {
-    console.error(result.error?.message);
+    toast.show((result.error as any).message, { type: "danger" });
   }
 });
 
@@ -50,7 +50,7 @@ export const authSignInWithEmailAndPassword = createAsyncThunk<
       authLoggedIn({ user: transformFirebaseUser(response.user) })
     );
   } catch (error) {
-    console.error(error);
+    toast.show((error as any).message, { type: "danger" });
   }
 });
 
@@ -69,7 +69,7 @@ export const authCreateUserWithEmailAndPassword = createAsyncThunk<
       authLoggedIn({ user: transformFirebaseUser(response.user) })
     );
   } catch (error) {
-    console.error(error);
+    toast.show((error as any).message, { type: "danger" });
   }
 });
 
@@ -80,7 +80,7 @@ export const authSignOut = createAsyncThunk(
       await signOut(auth);
       thunkApi.dispatch(authLoggedOut());
     } catch (error) {
-      console.error(error);
+      toast.show((error as any).message, { type: "danger" });
     }
   }
 );
